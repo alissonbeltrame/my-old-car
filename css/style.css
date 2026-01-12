@@ -1,0 +1,392 @@
+@charset "UTF-8";
+
+/* Cores temáticas (combine com o footer) */
+:root {
+  --primary: #ffcc00;      /* amarelo clássico */
+  --dark: #111;
+  --rust: #8B4513;
+  --bg-light: #f5f5dc;      /* bege vintage */
+  --text: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  /* Ótimo pra adicionar aqui globalmente */
+}
+
+.site-header {
+  background-color: var(--dark); /* #111 */
+  color: white;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 4px solid var(--rust); /* #8B4513 ferrugem */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  background-image: linear-gradient(rgba(17,17,17,0.85), rgba(17,17,17,0.85)), 
+                    url('imagens/fundo-garagem-header.jpg'); /* adicione uma imagem de garagem antiga */
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primary); /* #ffcc00 */
+}
+
+.logo-img {
+  width: 80px; /* ajuste conforme seu logo */
+  height: auto;
+  margin-right: 15px;
+}
+
+.logo-area h1 {
+  font-size: 2.2em;
+  margin: 0;
+  color: var(--primary);
+  text-shadow: 2px 2px 4px black;
+  font-family: 'Arial Black', Arial, sans-serif; /* ou uma fonte mais "garage" via Google Fonts */
+}
+
+.tagline {
+  font-size: 0.9em;
+  color: #ccc;
+  margin: 5px 0 0;
+  font-style: italic;
+}
+
+.main-nav {
+  display: flex;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-list a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 5px;
+  transition: all 0.3s;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+  color: var(--primary);
+  border-bottom: 3px solid var(--primary);
+}
+
+/* Menu hamburger para mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  background: var(--primary);
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* Responsivo - mobile */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .main-nav {
+    display: none;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  /* Quando menu aberto (use JS simples depois) */
+  .main-nav.active {
+    display: block;
+  }
+}
+
+main section:last-child {  /* A última seção (.cta) */
+  margin-bottom: 0 !important;
+}
+
+/* Geral do main */
+main {
+  flex: 1 0 auto;
+  background-color: var(--bg-light);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hero */
+.hero {
+  background-color: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('imagens/fundo-oficina.jpg'); /* adicione uma foto de garagem se quiser */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero h1 {
+  font-size: 4em;
+  margin: 0;
+  color: var(--primary);
+  text-shadow: 3px 3px 6px black;
+}
+
+.subtitle {
+  font-size: 1.6em;
+  margin: 20px 0;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--dark);
+  padding: 15px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: #e6b800;
+  transform: scale(1.05);
+}
+
+/* Intro */
+.intro {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-item {
+  background: white;
+  padding: 25px;
+  border: 2px solid var(--rust);
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Galeria */
+.gallery {
+  padding: 60px 20px;
+  background-color: #eee;
+  text-align: center;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid var(--rust);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* CTA */
+.cta {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: var(--dark);
+  color: white;
+}
+
+.cta h2 {
+  color: var(--primary);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 3em; }
+  .features { flex-direction: column; align-items: center; }
+}
+
+footer {
+    flex-shrink: 0;
+    background-color: #111;
+    color: #ddd;
+    padding: 40px 20px 20px;
+    border-top: 4px solid #8B4513; /* marrom ferrugem */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 20px;
+  text-align: center;
+}
+
+.footer-section h3, .footer-section h4 {
+  color: #ffcc00; /* amarelo clássico de placa antiga */
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #ffcc00;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  font-size: 0.9em;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+}
+
+/* Style Sobre o Jogo */
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.features-list li {
+  background: white;
+  margin: 15px 0;
+  padding: 15px;
+  border-left: 5px solid var(--primary);
+  border-radius: 4px;
+}
+
+.center { text-align: center; font-style: italic; }
+
+/* Style Atualizações */
+.update-post {
+  background: white;
+  padding: 25px;
+  margin: 30px 0;
+  border: 2px solid var(--rust);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.update-post .date {
+  font-size: 0.9em;
+  color: #777;
+  margin: 10px 0;
+}
+
+/* Style Contato */
+.form-section {
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+form label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+form button {
+  margin-top: 20px;
+}
